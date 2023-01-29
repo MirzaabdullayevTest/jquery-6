@@ -1,19 +1,13 @@
 $(document).ready(function () {
-    var $inp = $('.form-control')
-    var $btn = $('.btn')
-    var $listGroup = $('.list-group')
+  var $inp = $(".form-control");
+  var $btn = $(".btn");
+  var $list = $(".list-group");
 
-    $btn.click(function () {
-        var val = $inp.val()
+  $btn.click(function (e) {
+    var $val = $inp.val();
+    $inp.val("");
+    $list.append(`<li>${$val} <button class="btn-close">x</button></li>`);
+  });
 
-        $listGroup.append(`<li class="alert alert-dark"><input type="checkbox"><span>${val}</span> <button type="button" class="btn-close remove" aria-label="Close">x</button></li>`)
-
-        $inp.val('')
-    })
-
-    $listGroup.on('click', '.btn-close', function () {
-        $(this).parent().remove()
-    })
-
-
+  
 });
